@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starlette and Friends</title>
+<style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f8f2e9;
+      color: #333;
+    }
+    header {
+      background: #b88d5b;
+      padding: 1em;
+      text-align: center;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 1em;
+      justify-content: center;
+    }
+    .card {
+      display: flex;
+      width: 90%;
+      max-width: 900px;
+      margin: 1em;
+      background: #fff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .card img {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+      background: #f4e6d5;
+      cursor: pointer;
+    }
+    .bio {
+      padding: 1em;
+      flex: 1;
+    }
+    .bio h2 {
+      margin-top: 0;
+    }
+    .bio p {
+      margin: 0.3em 0;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Starlette and Friends</h1>
+</header>
+
+<div class="container">
+  <!-- Info -->
+  <div class="card">
+    <div class="bio">
+      <h2>Info</h2>
+     <p>These are characters I created with help of ChatGPT. You are allowed to use them in your own story, if you like, as long as you credit <strong><a href="https://mimmipeppermint.carrd.co/">Mimmi Peppermint</a></strong> 
+	 <p> The diffrent character bios will be updates as they are further developed.</p>
+    </div>
+  </div>
+
+  <!-- Starlette -->
+  <div class="card">
+    <img src="Starlette.png" alt="Starlette">
+    <div class="bio">
+      <h2>Starlette Moonshine</h2>
+      <p><strong>Age:</strong> Early 20s</p>
+      <p><strong>Personality:</strong> Empathetic, emotionally intuitive, playful at times, and deeply caring for her friends.</p>
+      <p><strong>Mental Health:</strong> Sometimes experiences non-verbal episodes due to emotional overload and also experiences age regression during moments of extreme vulnerability.</p>
+	  <p><strong>Other Details:</strong> Starlette’s age regression is triggered during periods of overwhelming emotions, and she’s learning to manage these moments with the help of her friends and Mel.</p>
+      <p><strong>Relationship:</strong> In a relationship with Mel</p>
+      <p><strong>From:</strong> Texarkana, USA</p>
+    </div>
+  </div>
+
+  <!-- Mel -->
+  <div class="card">
+    <img src="Mel.png" alt="Mel">
+    <div class="bio">
+      <h2>Mel Johanneson</h2>
+      <p><strong>Age:</strong> Early 20s</p>
+      <p><strong>Personality:</strong> Loyal, calm, and nurturing. Mel is the type of person who will always support her friends, especially Starlette.</p>
+      <p><strong>Mental Health:</strong> Mel has high-functioning depression and uses her connection with Starlette as a way to heal emotionally.</p>
+	  <p><strong>Other Details:</strong> Mel is patient and understanding, especially with Starlette’s struggles. She enjoys the simple moments with her girlfriend and their close-knit group of friends.</p>
+      <p><strong>Relationship:</strong> In a relationship with Starlette.</p>
+      <p><strong>From:</strong> Texarkana, USA</p>
+    </div>
+  </div>
+
+  <!-- Jade -->
+  <div class="card">
+    <img src="Jade.png" alt="Jade">
+    <div class="bio">
+      <h2>Jade Batterfield</h2>
+      <p><strong>Age:</strong> Early 20s</p>
+      <p><strong>Personality:</strong> old, protective, and a bit rebellious. Jade is fiercely loyal to those she loves, especially Raven.</p>
+      <p><strong>Mental Health:</strong> Jade shows signs of ADHD, but she manages it well with the support of her friends.</p>
+	  <p><strong>Other Details:</strong> Jade’s protective nature makes her a great support system for Raven, and she has a strong connection with Starlette and the rest of the group.</p>
+      <p><strong>Relationship:</strong> In a relationship with Raven.</p>
+      <p><strong>From:</strong> Texarkana, USA</p>
+    </div>
+  </div>
+
+  <!-- Raven -->
+  <div class="card">
+    <img src="Raven.png" alt="Raven">
+    <div class="bio">
+      <h2>Raven Darkshadow</h2>
+      <p><strong>Age:</strong> Early 20s</p>
+      <p><strong>Personality:</strong> Introspective, poetic, and emotionally intelligent. Raven offers quiet strength and perspective to the group.</p>
+      <p><strong>Mental Health:</strong> Raven lives with dysthymia (a form of chronic low mood), but she is learning to express her emotions more openly.</p>
+	  <p><strong>Other Details:</strong> Raven is introspective and enjoys quiet moments, but she has opened up more since being with Jade and her friends. She has a great bond with Starlette and enjoys spending time with her in a supportive, comforting way.</p>
+      <p><strong>Relationship:</strong> In a relationship with Jade.</p>
+      <p><strong>From:</strong> Texarkana, USA</p>
+    </div>
+  </div>
+
+  <!-- Hellen -->
+  <div class="card">
+    <img src="Hellen.png" alt="Hellen">
+    <div class="bio">
+      <h2>Hellen Brown</h2>
+      <p><strong>Age:</strong> Late 50s–early 60s</p>
+      <p><strong>Personality:</strong> Wise, warm, and caring, Hellen acts as a mentor and support figure in the group.</p>
+      <p><strong>Mental Health:</strong> Hellen has recovered from grief-related depression and now provides a calm presence for others.</p>
+	  <p><strong>Other Details:</strong> Hellen enjoys spending time with the group, offering support when needed. She has a unique perspective on life and encourages those around her to embrace vulnerability.</p>
+      <p><strong>Relationship:</strong> Single, content in her community involvement.</p>
+      <p><strong>From:</strong> Brightwater, UK (now in Texarkana)</p>
+    </div>
+  </div>
+
+  <!-- Lillian -->
+  <div class="card">
+    <img src="Lillian.png" alt="Lillian">
+    <div class="bio">
+      <h2>Lillian Poppy</h2>
+      <p><strong>Age:</strong> Mid 20s</p>
+      <p><strong>Personality:</strong> Gentle, soft-spoken, and sensitive. Lillian is still exploring herself and her place in the world.</p>
+      <p><strong>Mental Health:</strong> Lillian is likely autistic with social anxiety, and she also experiences age regression when feeling overwhelmed.</p>
+	  <p><strong>Other Details:</strong> Lillian enjoys deep, meaningful conversations but can find large social gatherings overwhelming. She values emotional connections and the safety of her chosen family.</p>
+      <p><strong>Relationship:</strong> Single, emotionally developing within her chosen family.</p>
+      <p><strong>From:</strong> Twin Falls, USA (now in Texarkana)</p>
+    </div>
+  </div>
+
+  <!-- Günther -->
+  <div class="card">
+    <img src="Günther.png" alt="Günther">
+    <div class="bio">
+      <h2>Günther Hoffmann</h2>
+      <p><strong>Age:</strong> Early 30s</p>
+      <p><strong>Personality:</strong> Charming, friendly, and easygoing, Günther enjoys spending time with others and values deep connections.</p>
+      <p><strong>Mental Health:</strong> No significant issues but values emotional understanding and open communication.</p>
+	  <p><strong>Other Details:</strong> Günther enjoys being part of the group and has a good connection with everyone. He values simplicity and enjoys relaxing, whether it’s over coffee or a quiet conversation.</p>
+      <p><strong>Relationship:</strong> With Herb</p>
+      <p><strong>From:</strong> Landshut, Bavaria, Germany (now living in Ashdown, Arkansas, USA)</p>
+    </div>
+  </div>
+
+  <!-- Herb -->
+  <div class="card">
+    <img src="Herb.png" alt="Herb">
+    <div class="bio">
+      <h2>Herb Peterson</h2>
+      <p><strong>Age:</strong> Early 20s</p>
+      <p><strong>Personality:</strong> Kind, outgoing, and friendly. Herb is supportive of Starlette and the group and enjoys seeing people happy.</p>
+      <p><strong>Mental Health:</strong> erb doesn’t show any major mental health issues but values emotional well-being and understanding.</p>
+	   <p><strong>Other Details:</strong> Herb enjoys spending time with his boyfriend Günther, and has a strong friendship with Starlette and the group. He’s always open to learning and growing through his relationships with others.</p>
+      <p><strong>Relationship:</strong> With Günther</p>
+      <p><strong>From:</strong> Texarkana, USA (now living in Ashdown, Arkansas, USA)</p>
+    </div>
+  </div>
+<!-- Modal for Enlarged Image -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const imgs = document.querySelectorAll(".card img");
+
+  imgs.forEach(img => {
+    img.addEventListener("click", function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+    });
+  });
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+</script>
+</div>
+
+</body>
+</html>
